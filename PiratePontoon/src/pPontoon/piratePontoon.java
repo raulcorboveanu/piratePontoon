@@ -1,6 +1,7 @@
 package pPontoon;
 
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class piratePontoon {
 
@@ -83,20 +84,21 @@ public class piratePontoon {
 			System.out.println("Dealer Cards:\n " + dealerDeck.toString());
 			//compare hand values
 			if((dealerDeck.cardsValue() > playerDeck.cardsValue()) && endRound == false) {
-				System.out.println("Dealer wins!");
+				System.out.println("\nDealer wins!");
 				playerMoney -= playerBet;
 				endRound = true;
 			}
 			//dealer draws until 17 or higher
 			while((dealerDeck.cardsValue() < 17) && endRound == false){
 				dealerDeck.draw(playingDeck);
-				System.out.println("\nDealer draws " + dealerDeck.getCard(dealerDeck.deckSize()-1).toString());
-			}
+				System.out.println("\nDealer draws " + dealerDeck.getCard(dealerDeck.deckSize()-1).toString());	
+				}
+			
 			//display dealer value
 			System.out.println("\nDealer's hand value is " + dealerDeck.cardsValue());
 			//did they bust?
 			if((dealerDeck.cardsValue() > 21) && endRound == false) {
-				System.out.println("Dealer busts! You win!");
+				System.out.println("\nDealer busts! You win!");
 				playerMoney += playerBet;
 				endRound = true;
 			}
@@ -127,6 +129,8 @@ public class piratePontoon {
 		
 		System.out.println("Game over! You have no more money.");
 
+		}
 	}
 
-}
+
+
